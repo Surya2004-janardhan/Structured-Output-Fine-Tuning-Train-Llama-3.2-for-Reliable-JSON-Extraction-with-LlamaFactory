@@ -1,0 +1,21 @@
+filename,raw_output_first_50_chars,is_valid_json,has_all_required_keys,key_accuracy,value_accuracy,notes
+EVAL-101,"Based on the invoice provided, here is the extract",False,False,0.0,0.4,Base model failed to follow schema/prose issues.
+EVAL-102,"Based on the invoice provided, here is the extract",False,False,0.0,0.4,Base model failed to follow schema/prose issues.
+EVAL-103,"{   ""vendor"": ""Sample Vendor 103"",   ""total"": 100.",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-104,"Based on the invoice provided, here is the extract",False,False,0.0,0.4,Base model failed to follow schema/prose issues.
+EVAL-105,"{   ""company_name"": ""Sample Vendor 105"",   ""amount",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-106,"{   ""vendor"": ""Sample Vendor 106"",   ""total"": 100.",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-107,"Based on the invoice provided, here is the extract",False,False,0.0,0.4,Base model failed to follow schema/prose issues.
+EVAL-108,"{   ""vendor"": ""Sample Vendor 108"",   ""total"": 100.",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-109,"{   ""vendor"": ""Sample Vendor 109"",   ""total"": 100.",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-110,"```json {   ""vendor"": ""Sample Vendor 110"",   ""tota",False,False,0.0,0.4,Base model failed to follow schema/prose issues.
+EVAL-111,"{   ""vendor"": ""Sample Vendor 111"",   ""total"": 100.",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-112,"Based on the invoice provided, here is the extract",False,False,0.0,0.4,Base model failed to follow schema/prose issues.
+EVAL-113,"{   ""vendor"": ""N/A"",   ""total"": 100.0 }",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-114,"{   ""vendor"": ""N/A"",   ""total"": 100.0 }",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-115,"{   ""vendor"": ""N/A"",   ""total"": 100.0 }",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-116,"{   ""company_name"": ""N/A"",   ""amount_due"": 500.0 }",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-117,"Based on the invoice provided, here is the extract",False,False,0.0,0.4,Base model failed to follow schema/prose issues.
+EVAL-118,"Based on the invoice provided, here is the extract",False,False,0.0,0.4,Base model failed to follow schema/prose issues.
+EVAL-119,"{   ""vendor"": ""N/A"",   ""total"": 100.0 }",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
+EVAL-120,"{   ""vendor"": ""N/A"",   ""total"": 100.0 }",True,False,0.5,0.4,Base model failed to follow schema/prose issues.
