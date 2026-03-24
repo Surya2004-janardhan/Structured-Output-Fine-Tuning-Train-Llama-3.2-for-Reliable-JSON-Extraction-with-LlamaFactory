@@ -1,0 +1,21 @@
+filename,raw_output_first_50_chars,is_valid_json,has_all_required_keys,key_accuracy,value_accuracy,notes
+EVAL-101,"{   ""vendor"": ""Sample Vendor 101"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-102,"{   ""vendor"": ""Sample Vendor 102"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-103,"{   ""vendor"": ""Sample Vendor 103"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-104,"{   ""vendor"": ""Sample Vendor 104"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-105,"{   ""vendor"": ""Sample Vendor 105"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-106,"{   ""vendor"": ""Sample Vendor 106"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-107,"{   ""vendor"": ""Sample Vendor 107"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-108,"{   ""vendor"": ""Sample Vendor 108"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-109,"{   ""vendor"": ""Sample Vendor 109"",   ""invoice_numb",True,True,1.0,0.8,Fine-tuned model followed schema perfectly.
+EVAL-110,"{   ""vendor"": ""Sample Vendor 110"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-111,"{   ""vendor"": ""Sample Vendor 111"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-112,"{   ""vendor"": ""Sample Vendor 112"",   ""invoice_numb",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-113,"{   ""buyer"": ""Sample Buyer 113"",   ""supplier"": ""Te",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-114,"{   ""buyer"": ""Sample Buyer 114"",   ""supplier"": ""Te",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-115,"{   ""buyer"": ""Sample Buyer 115"",   ""supplier"": ""Te",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-116,"{   ""buyer"": ""Sample Buyer 116"",   ""supplier"": ""Te",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-117,"{   ""buyer"": ""Sample Buyer 117"",   ""supplier"": ""Te",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-118,"{   ""buyer"": ""Sample Buyer 118"",   ""supplier"": ""Te",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-119,"{   ""buyer"": ""Sample Buyer 119"",   ""supplier"": ""Te",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
+EVAL-120,"{   ""buyer"": ""Sample Buyer 120"",   ""supplier"": ""Te",True,True,1.0,0.95,Fine-tuned model followed schema perfectly.
