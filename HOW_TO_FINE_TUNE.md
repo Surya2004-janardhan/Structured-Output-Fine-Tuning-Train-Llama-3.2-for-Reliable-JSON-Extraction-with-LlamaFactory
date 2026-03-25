@@ -58,3 +58,36 @@ In the **"Fine-tune"** tab, set the following:
 
 ---
 **Tip**: Reference `training_config.md` in this repository for the full justification of these settings.
+
+## Troubleshooting
+
+### Error: "Your setup doesn't support bf16/gpu"
+If you see this error when clicking "Start Training", it means LlamaFactory is trying to use an NVIDIA GPU with BF16 precision, but your hardware doesn't support it (or you are running on CPU).
+
+**How to fix:**
+1. **Change Compute Type**: In the "Fine-tune" tab, look for **"Compute Type"** or **"Precision"**. Change it from `bf16` to **`fp16`** or **`fp32`**.
+2. **Enable CPU Mode**: If you don't have a discrete NVIDIA GPU, look for a **"Use CPU"** checkbox or set the device to **`cpu`**.
+3. **Advanced**: If using a config file, set `bf16: false` and `fp16: true` (for older GPUs) or `fp16: false` (for CPU).
+
+### Error: "OSError: You are trying to access a gated repo"
+Llama 3.2 is a gated model. You must request access and authenticate to download it.
+
+**How to fix (401 Unauthorized):**
+1. **Request Access**: Visit [huggingface.co/meta-llama/Llama-3.2-3B-Instruct](https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct) and click "Request Access".
+2. **Create a Token**: Go to [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens) and create a "Read" token.
+3. **Login in Terminal**:
+   ```bash
+   source myenv/bin/activate
+   huggingface-cli login
+   ```
+   Paste your token when prompted.
+4. **Restart LlamaFactory**: Once logged in, restart the `llamafactory-cli webui` command.
+
+**How to fix (403 Forbidden - "Awaiting Review"):**
+If you see the message **"Your request to access model is awaiting a review from the repo authors"**:
+- This means you have successfully requested access but **Meta hasn't approved it yet**.
+- **Action**: You must wait for an email from Hugging Face confirming your access is granted. This usually takes from 10 minutes to a few hours.
+- Once you receive the "Access granted" email, the 403 error will disappear and the download will start automatically.
+
+
+
