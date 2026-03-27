@@ -12,6 +12,7 @@ This repository documents the process of fine-tuning a **Qwen 2.5 3B Instruct** 
 - **Curated Dataset**: 80 high-quality training examples (50 invoices, 30 POs) with diverse layouts and edge cases.
 - **LoRA Fine-Tuning**: Optimized training configuration (Rank 16, Alpha 32) for efficient adaptation.
 - **Before-and-After Evaluation**: Rigorous comparison of baseline vs. fine-tuned performance on held-out documents.
+- **Detailed Guides**: Local setup ([HOW_TO_FINE_TUNE.md](HOW_TO_FINE_TUNE.md)) and Google Colab ([COLAB_TRAINING_GUIDE.md](COLAB_TRAINING_GUIDE.md)).
 
 ## Repository Structure
 - `schema/`: JSON schema definitions and documentation.
