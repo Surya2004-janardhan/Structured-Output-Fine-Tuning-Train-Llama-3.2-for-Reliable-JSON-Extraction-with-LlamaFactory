@@ -1,6 +1,6 @@
-# Project Plan: Structured Output Fine-Tuning Llama 3.2
+# Project Plan: Structured Output Fine-Tuning Qwen 2.5
 
-The objective is to fine-tune Llama 3.2 to extract JSON data from invoices and purchase orders with high reliability and parsing success rate.
+The objective is to fine-tune Qwen 2.5 to extract JSON data from invoices and purchase orders with high reliability and parsing success rate.
 
 ## Phase 1: Infrastructure & Schema (Design & Setup)
 - Develop project structure for systematic tracking.

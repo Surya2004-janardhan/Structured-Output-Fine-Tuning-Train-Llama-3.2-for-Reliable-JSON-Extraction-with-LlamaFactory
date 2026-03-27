@@ -1,7 +1,7 @@
 # Training Configuration & Justification
 
 ## Model & Method
-- **Base Model**: Llama-3.2-3B-Instruct
+- **Base Model**: Qwen/Qwen2.5-3B-Instruct
 - **Fine-tuning Method**: LoRA (Low-Rank Adaptation)
 - **Framework**: LlamaFactory (Gradio Web UI)
 

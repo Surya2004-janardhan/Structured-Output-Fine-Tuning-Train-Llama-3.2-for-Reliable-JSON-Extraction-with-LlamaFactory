@@ -1,7 +1,7 @@
 # Final Report: Prompting vs. Fine-Tuning
 
 ## Methodology comparison
-This project evaluated two primary methods for ensuring structured JSON output from Llama 3.2 3B. 
+This project evaluated two primary methods for ensuring structured JSON output from Qwen 2.5 3B. 
 
 **Prompt Engineering** (Baseline) relied on complex, iterative instructions (system prompts, few-shot examples, and strict constraints). Despite multiple versions (V1 to V3), the base model consistently included markdown code fences, prose explanations, or deviated from the strict key-value schema. The parse success rate remained at 0% for automation purposes because every response required manual regex or stripping logic to extract valid JSON.
 
