@@ -1,50 +1,38 @@
 # Project Explanation: Top-to-Bottom Workflow
 
-This document provides a comprehensive walkthrough of the technical methodology and flows implemented in this project.
+This document provides a comprehensive walkthrough of the technical methodology and filename-level details of this project.
 
 ## 1. Project Objective
-The goal is to solve the **Reliability Problem** in LLM-based data extraction. General LLMs often return prose, markdown fences, or inconsistent keys. Fine-tuning with LoRA converts these "formatting preferences" into "hard constraints".
+The goal was to solve the **Reliability Problem** in LLM-based data extraction. General LLMs (like the base Llama 3.2) often return prose, markdown fences, or inconsistent keys. Fine-tuning with LoRA converts these "formatting preferences" into "hard constraints".
 
-## 2. Technical Workflow
-The project follows a 5-phase execution flow:
+## 2. Methodology: How We Did It All
+We used **Supervised Fine-Tuning (SFT)**. By presenting the model with examples where the *only* correct behavior is responding with a specific JSON object, we trained the model to treat JSON as its native language for this task.
 
-### Flow A: Schema Design (The Blueprint)
-Before any data curation, we established the "Ground Truth".
-- **Functions**: Defined mandatory keys, data types, and null-handling logic.
-- **Output**: `schema/invoice_schema.md` and `schema/po_schema.md`.
+## 3. File-by-File Breakdown
 
-### Flow B: Data Curation (The Foundation)
-We curated 80 examples sourced from datasets like CORD and SROIE.
-- **Methodology**: 
-  - 50 Invoices, 30 Purchase Orders.
-  - Ensuring diversity in layout, currency, and multi-line items.
-  - Manual review logged in `data/curation_log.md`.
-- **Output**: `data/curated_train.jsonl`.
+### Core Infrastructure
+- **`schema/invoice_schema.md` & `schema/po_schema.md`**: These define the "Ground Truth". Every training example and evaluation check was validated against these strict structures.
+- **`data/curated_train.jsonl`**: The training set. It contains 80 input-output pairs where the input is raw text and the output is the cleaned JSON.
+- **`data/curation_log.md`**: A detailed audit trail of how we selected and cleaned the training data.
 
-### Flow C: Baseline & Prompting (The Control)
-Establishing how the base model performs without fine-tuning.
-- **Methodology**: 20 held-out documents tested against a "Gold Standard" prompt.
-- **Insight**: Even with strict prompting, base models struggle with consistent machine-parseable JSON.
+### Training & Configuration
+- **`docs/training_config.md`**: The technical "recipe". It explains why we chose **Rank 16** and **Alpha 32** for LoRA, and how we balanced learning speed vs. model stability.
+- **`docs/plan.md`**: The original 5-phase execution strategy used to build this project from scratch.
 
-### Flow D: Fine-Tuning (The Training)
-Using LlamaFactory to inject the schema knowledge into the model weights using LoRA.
-- **Hyperparameters**:
-  - **Rank 16**: Enough capacity for structural learning.
-  - **Alpha 32**: Scaling factor for weights.
-  - **Learning Rate 2e-4**: Balanced convergence.
-- **Visuals**: Confirmed via `screenshots/loss_curve.png`.
+### Deployment Guides
+- **`docs/HOW_TO_FINE_TUNE.md`**: Instructions for running the LlamaFactory Web UI on a local machine with a GPU.
+- **`docs/COLAB_TRAINING_GUIDE.md`**: A specialized guide for **Google Colab** that includes exact code cells for environment setup, data registration, and model uploading.
 
-### Flow E: Evaluation & Analysis (The Verdict)
-Final verification (in progress) comparing the fine-tuned model against the baseline.
-- **Metric**: Parse Success Rate (percentage of responses that are valid JSON + schema-compliant).
+### Evaluation & Proof
+- **`eval/summary.md`**: The final scorecard showing the jump from **0% to 100% success**.
+- **`eval/baseline_responses.md`**: Logs showing the failures of the un-tuned model.
+- **`eval/finetuned_responses.md`**: Logs showing the perfect, clean JSON outputs from our fine-tuned Llama 3.2.
+- **`screenshots/loss_curve.png`**: Visual proof that the model successfully converged during training.
+- **`screenshots/success_chat.png`**: A screenshot showing the model passing a real-time manual test.
 
-## 3. Directory & File Purpose
-| Directory | Purpose |
-| :--- | :--- |
-| `schema/` | Defines the REST API or database-ready JSON structure. |
-| `data/` | The raw "experience" the model learns from. |
-| `training_config.md` | The "recipe" for the training process. |
-| `eval/` | Proof of performance improvement. |
+### Final Reports
+- **`README.md`**: The professional entry point and visual gallery of the project.
+- **`report.md`**: A strategic analysis of the ROI (Return on Investment) of using Fine-Tuning versus simple Prompt Engineering.
 
-## 4. How We Do It All
-We use **Supervised Fine-Tuning (SFT)**. By presenting the model with hundreds of examples where the only correct behavior is responding with a specific JSON object, the model's likelihood for those tokens (keys and braces) increases dramatically relative to prose tokens. This "specialization" ensures that the model treats JSON formatting as its primary task.
+## 4. Technical Flow
+1. **Define Schema** -> 2. **Curate Data** -> 3. **Establish Baseline (Failure)** -> 4. **Fine-Tune (Llama 3.2 + LoRA)** -> 5. **Verify (Success)**.

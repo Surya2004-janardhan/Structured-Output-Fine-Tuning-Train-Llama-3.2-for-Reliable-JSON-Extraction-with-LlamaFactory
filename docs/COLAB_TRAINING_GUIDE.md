@@ -59,7 +59,16 @@ Paste and run this in the third cell:
 ```
 1. Click the **"Public URL"** (ending in `.gradio.live`) that appears in the output.
 2. In the Web UI:
-   - **Model Name**: Select `Qwen2.5-3B-Instruct`.
+## Step 1.5: Authenticate (Compulsory for Llama 3.2)
+Since Llama 3.2 is a gated model, you **MUST** provide your Hugging Face token.
+1. Run this in a new cell:
+   ```python
+   from huggingface_hub import login
+   login()
+   ```
+2. Paste your token (with "Gated Repository Read" permissions) when prompted.
+
+   - **Model Name**: Select `Llama-3.2-3B-Instruct`.
    - **Dataset**: Check `invoice_po_curated`.
    - **Adapter**: Set LoRA (Rank 16, Alpha 32).
    - **Training**: Click "Start".

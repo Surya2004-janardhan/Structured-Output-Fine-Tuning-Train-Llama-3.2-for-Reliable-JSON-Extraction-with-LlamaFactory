@@ -35,7 +35,7 @@ LlamaFactory needs to know about your custom dataset.
 
 ## Phase 4: Configure Training (Web UI)
 In the **"Fine-tune"** tab, set the following:
-- **Model Name**: Select `Qwen2.5-3B-Instruct`.
+- **Model Name**: Select `Llama-3.2-3B-Instruct`.
 - **Stage**: Supervised Fine-tuning.
 - **Dataset**: `invoice_po_curated`.
 - **Training Method**: `LoRA`.
