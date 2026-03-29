@@ -14,12 +14,16 @@ By applying **Supervised Fine-Tuning (SFT)** using **LoRA** (Low-Rank Adaptation
 ## 📸 Training Progress & Results
 
 ### 1. Training Convergence (Loss Curve)
-<img src="screenshots/loss_curve.png" width="100%" alt="Loss Curve Visualization" />
+<img src="screenshots/loss.png" width="100%" alt="Loss Curve Visualization" />
 *The loss decreased steadily over 3 epochs on the curated dataset, signifying high-confidence learning of the output constraints.*
 
 ### 2. Manual Verification (Successful Extraction)
-<img src="screenshots/success_chat.png" width="100%" alt="Chat Tab Success Preview" />
+<img src="screenshots/chat_success.png" width="100%" alt="Chat Tab Success Preview" />
 *Real-time testing in the LlamaFactory Chat tab confirms the model returns **only** valid, schema-compliant JSON without any prose or markdown fences.*
+
+### 3. Training Config (Hyperparameters)
+<img src="screenshots/training-config.png" width="100%" alt="Training Config" />
+*Training config shows the hyperparameters used for fine-tuning the model.*
 
 ---
 
