@@ -1,6 +1,6 @@
 # Google Colab Fine-Tuning Guide (Fastest)
 
-This guide provides a copy-paste workflow for fine-tuning **Qwen 2.5 3B** using the provided dataset on a free Google Colab GPU.
+This guide provides a copy-paste workflow for fine-tuning **Llama 3.2 3B** using the provided dataset on a free Google Colab GPU.
 
 ## Step 1: Open Google Colab
 1. Go to [colab.google](https://colab.google).
@@ -75,10 +75,10 @@ Since Llama 3.2 is a gated model, you **MUST** provide your Hugging Face token.
 
 ## Step 5: Save Your Weights
 Once training hits 100%, go to the **"Export"** tab in the Web UI:
-1. Export the model to `/content/finetuned_qwen`.
+1. Export the model to `/content/finetuned_llama`.
 2. Zip and download it to your local machine:
    ```bash
-   !zip -r finetuned_qwen.zip /content/finetuned_qwen
+   !zip -r finetuned_llama.zip /content/finetuned_llama
    ```
 
 ---
