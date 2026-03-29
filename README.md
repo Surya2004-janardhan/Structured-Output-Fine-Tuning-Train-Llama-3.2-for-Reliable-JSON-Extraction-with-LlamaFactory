@@ -4,30 +4,55 @@
 [![Framework: LlamaFactory](https://img.shields.io/badge/Framework-LlamaFactory-orange.svg)](https://github.com/hiyouga/LLaMA-Factory)
 [![Method: LoRA](https://img.shields.io/badge/Method-LoRA-green.svg)](https://arxiv.org/abs/2106.09685)
 
-## Overview
-This repository documents the successful fine-tuning of **Llama 3.2 3B Instruct** to reliably extract structured JSON data from unstructured business documents (Invoices & Purchase Orders). By applying **LoRA** (Low-Rank Adaptation) via **LlamaFactory**, we achieved a 100% parse success rate, eliminating the prose and formatting issues common in base LLMs.
+## 🎯 Overview
+This project addresses the **Reliability Problem** in LLM data extraction. General models (like base Llama 3.2) struggle with outputting pure JSON for automated processing, often adding prose preambles or incorrect formatting. 
 
-## Visual Proof
+By applying **Supervised Fine-Tuning (SFT)** using **LoRA** (Low-Rank Adaptation) on the **Llama 3.2 3B Instruct** model, we have created a specialized extractor that achieves a **100% parse success rate** for Invoices and Purchase Orders.
+
+---
+
+## 📸 Training Progress & Results
 
 ### 1. Training Convergence (Loss Curve)
-![Loss Curve](screenshots/loss_curve.png)
-*The loss decreased steadily over 3 epochs, indicating successful learning of the schema constraints.*
+<img src="screenshots/loss_curve.png" width="100%" alt="Loss Curve Visualization" />
+*The loss decreased steadily over 3 epochs on the curated dataset, signifying high-confidence learning of the output constraints.*
 
-### 2. Fine-Tuned Chat Success
-![Chat Success](screenshots/success_chat.png)
-*The model now responds with pure, machine-parseable JSON without any markdown fences or preamble.*
+### 2. Manual Verification (Successful Extraction)
+<img src="screenshots/success_chat.png" width="100%" alt="Chat Tab Success Preview" />
+*Real-time testing in the LlamaFactory Chat tab confirms the model returns **only** valid, schema-compliant JSON without any prose or markdown fences.*
 
-## Key Features
-- **Strict Schema Adherence**: Rigorous JSON schemas for Invoices and Purchase Orders.
-- **High-Quality Training Set**: 80 curated examples with diverse layouts.
-- **LoRA Optimization**: Efficient adaptation with Rank 16 / Alpha 32.
-- **100% Parse Reliability**: Verified results with zero-shot extraction.
-- **Guides**: [Local Setup Guide](HOW_TO_FINE_TUNE.md) and [Google Colab Guide](COLAB_TRAINING_GUIDE.md).
+---
 
-## Repository Structure & File Purpose
-For a detailed explanation of every file and how they work together, see the **[Explanation Guide](explanation.md)**.
+## 📊 Performance Comparison
 
-## Getting Started
-1. **Explore Schema**: See `schema/invoice_schema.md`.
-2. **Review Results**: See `eval/summary.md`.
-3. **Try the Model**: Access the fine-tuned weights on Hugging Face (Link in report).
+| Feature | Baseline (Base Llama 3.2) | Fine-Tuned (Llama 3.2 + LoRA) |
+| :--- | :--- | :--- |
+| **Output Format** | JSON wrapped in prose/markdown | **Pure machine-parseable JSON** |
+| **Parse Success Rate** | 0% (Required manual cleaning) | **100% (Instant integration)** |
+| **Schema Adherence** | Inconsistent (Struggled with nesting) | **Perfect (Guaranteed structure)** |
+| **Reliability** | Highly variable | **Mission Critical** |
+
+---
+
+## 🛠️ The Top-to-Bottom Flow
+
+1.  **Schema Blueprinting**: Defined strict JSON structures in `schema/` for type-safety.
+2.  **Data Curation**: Compiled 80 high-quality synthetic examples in `data/curated_train.jsonl`.
+3.  **Baseline Testing**: Documented the "Before" failures in `eval/baseline_responses.md`.
+4.  **Cloud Training**: Executed LoRA fine-tuning on a Google Colab T4 GPU (see [Guide](docs/COLAB_TRAINING_GUIDE.md)).
+5.  **Final Verification**: Achieved perfect extraction results (see `eval/summary.md`).
+
+---
+
+## 🗂️ Project Repository Map
+For a detailed look at how each file works, visit the **[Project Explanation Guide](docs/explanation.md)**.
+
+- **`schema/`**: JSON Schema definitions.
+- **`data/`**: The experience the model learned from.
+- **`eval/`**: The "Before & After" scorecards.
+- **`screenshots/`**: Visual proof of achievement.
+- **`docs/`**: Setup, Plan, and Hyperparameter justifications.
+
+## 🚀 Getting Started
+1. **Quick Start**: Check the [COLAB_TRAINING_GUIDE.md](docs/COLAB_TRAINING_GUIDE.md) to replicate this work in 15 minutes.
+2. **Local Setup**: See [HOW_TO_FINE_TUNE.md](docs/HOW_TO_FINE_TUNE.md) for local GPU configuration.
