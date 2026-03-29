@@ -18,8 +18,7 @@ Paste and run this in the first cell:
 
 # 2. Clone YOUR repository to get the data
 %cd /content/
-# Replace with your actual repository URL
-!git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+!git clone https://github.com/Surya2004-janardhan/Structured-Output-Fine-Tuning-Train-Llama-3.2-for-Reliable-JSON-Extraction-with-LlamaFactory.git
 ```
 
 ## Step 3: Register Your Data
@@ -29,7 +28,7 @@ import json
 import os
 
 # 1. Copy our curated data into the LlamaFactory folder
-!cp /content/YOUR_REPO_NAME/data/curated_train.jsonl /content/LLaMA-Factory/data/curated_train.jsonl
+!cp /content/Structured-Output-Fine-Tuning-Train-Llama-3.2-for-Reliable-JSON-Extraction-with-LlamaFactory/data/curated_train.jsonl /content/LLaMA-Factory/data/curated_train.jsonl
 
 # 2. Add the dataset entry to LlamaFactory's registry
 info_path = "/content/LLaMA-Factory/data/dataset_info.json"
